@@ -16,8 +16,14 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import useAuth from '../../../hooks/useAuth';
-import { NavLink  } from 'react-router-dom';
+import { Link, NavLink, useRouteMatch, Switch, Route  } from 'react-router-dom';
 import { Button } from '@mui/material';
+import PaymentSystem from '../PaymentSystem/PaymentSystem';
+import DashBoardHome from '../DashBoardHome/DashBoardHome';
+import MyOrders from '../MyOrders/MyOrders';
+import Reviews from '../../Home/Reviews/Reviews';
+import MakeAdmin from '../MakeAdmin/MakeAdmin';
+import AddProducts from '../../Home/AddProducts/AddProducts';
 
 const drawerWidth = 240;
 
@@ -26,7 +32,7 @@ function Dashboard(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const { user, logout } = useAuth();
-  
+  let { path, url } = useRouteMatch();
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
@@ -43,17 +49,19 @@ function Dashboard(props) {
         </NavLink> 
       
       <Divider />
+      <Typography style={{marginTop: '15px', textAlign: 'center'}} variant="h6" paragraph>
+          DashBoard Menu
+        </Typography>
       <Divider />
-      <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
+      
+      <Link to={`${url}`}><Button color="inherit">Dashboard</Button></Link><br/>
+      <Link to={`${url}/myorders`}><Button color="inherit">My Orders</Button></Link><br/>
+      <Link to={`${url}/payment`}><Button color="inherit">Pay Now</Button></Link><br/>
+      <Link to={`${url}/reviews`}><Button color="inherit">Reviews</Button></Link><br/>
+      <Link to={`${url}/makeadmin`}><Button color="inherit">Make Admin</Button></Link><br/>
+      <Link to={`${url}/addproduct`}><Button color="inherit">Add Product</Button></Link>
+      <Divider />
+      
     </div>
   );
 
@@ -121,10 +129,27 @@ function Dashboard(props) {
         sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
       >
         <Toolbar />
-        <Typography paragraph>
-          Content Here
-        </Typography>
         
+        <Switch>
+                    <Route exact path={path}>
+                        <DashBoardHome></DashBoardHome>
+                    </Route>
+                    <Route path={`${path}/payment`}>
+                        <PaymentSystem></PaymentSystem>
+                    </Route>
+                    <Route path={`${path}/myorders`}>
+                        <MyOrders></MyOrders>
+                    </Route>
+                    <Route path={`${path}/reviews`}>
+                        <Reviews></Reviews>
+                    </Route>
+                    <Route path={`${path}/makeadmin`}>
+                        <MakeAdmin></MakeAdmin>
+                    </Route>
+                    <Route path={`${path}/addproduct`}>
+                        <AddProducts></AddProducts>
+                    </Route>
+                </Switch>
       </Box>
     </Box>
   );

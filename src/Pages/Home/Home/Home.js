@@ -3,7 +3,7 @@ import Footer from '../../Shared/Footer/Footer';
 import Navigation from '../../Shared/Navigation/Navigation';
 import Banner from '../Banner/Banner';
 import Products from '../Products/Products';
-import Review from '../Review/Review';
+import Review from '../Reviews/Reviews';
 
 
 const Home = () => {
