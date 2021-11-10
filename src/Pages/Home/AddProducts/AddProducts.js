@@ -45,7 +45,7 @@ const AddProducts = () => {
     return (
         
         <>
-            <h2>Add Products</h2>
+            <h2>Add Your Products</h2>
             <form onSubmit={handleProductSubmit}>
             <TextField
                 sx={{ width: '60%', m: 1 }}
