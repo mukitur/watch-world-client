@@ -23,20 +23,21 @@ const MakeAdmin = () => {
     }
 
     return (
+       <>
+       <h2>Create Admin</h2>
         <form onSubmit={handleBookingSubmit}>
-        
-        <TextField
-            sx={{ width: '70%', m: 1 }}
-            id="outlined-size-small"
-            name="email"
-            onBlur={handleOnBlur}
-            defaultValue={user.email}
-            size="small"
-        />
-        
-        <br/>
-        <Button type="submit" variant="contained">Make Admin</Button>
-    </form>
+            <TextField
+                sx={{ width: '70%', m: 1 }}
+                id="outlined-size-small"
+                name="email"
+                onBlur={handleOnBlur}
+                defaultValue={user.email}
+                size="small"
+            />
+            <br/>
+            <Button type="submit" variant="contained">Make Admin</Button>
+        </form>
+       </>
     );
 };
 

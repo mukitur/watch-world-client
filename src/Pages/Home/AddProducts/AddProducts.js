@@ -1,5 +1,5 @@
 
-import { Alert, Button, TextField, Typography } from '@mui/material';
+import { Button, TextField } from '@mui/material';
 //import { Box } from '@mui/system';
 import React, {useState} from 'react';
 //import useAuth from '../../../hooks/useAuth';
@@ -7,21 +7,36 @@ import React, {useState} from 'react';
 const AddProducts = () => {
     //const {user} = useAuth();
     const initialInfo = {productName: '', description: '', price: '', image: '' }
-    const [peoductInfo, setPeoductInfo] = useState(initialInfo);
+    const [productInfo, setProductInfo] = useState(initialInfo);
     
 
     const handleOnBlur = e => {
         const field = e.target.name;
         const value = e.target.value;
-        const newInfo = { ...peoductInfo };
+        const newInfo = { ...productInfo };
         newInfo[field] = value;
         console.log(newInfo)
-        setPeoductInfo(newInfo);
+        setProductInfo(newInfo);
 
     }
 
-    const handleBookingSubmit = e => {
-        alert('submitting');
+    const handleProductSubmit = e => {
+        // alert('submitting');
+        const products = {...productInfo};
+        console.log(products)
+        fetch('http://localhost:8000/products', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(products)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            console.log(data)
+            
+        })
+       
         //Collect Data
         //Send data to server
         e.preventDefault();
@@ -31,15 +46,15 @@ const AddProducts = () => {
         
         <>
             <h2>Add Products</h2>
-            <form onSubmit={handleBookingSubmit}>
+            <form onSubmit={handleProductSubmit}>
             <TextField
                 sx={{ width: '60%', m: 1 }}
                 id="outlined-size-small"
                 name="productName"
-                defaultValue='Product Name'
+                onBlur={handleOnBlur}
+                defaultValue="Product Name"
                 size="small"
-            />
-            <br/>
+            /><br/>
             <TextField
                 sx={{ width: '60%', m: 1 }}
                 id="outlined-size-small"
