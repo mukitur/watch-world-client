@@ -1,4 +1,4 @@
-import { Button, Card, CardContent, CardMedia, Grid, Typography } from '@mui/material';
+import { Button, Card, CardContent, CardMedia, Container, Grid, Typography } from '@mui/material';
 import React from 'react';
 
 const SingleProduct = ({product}) => {
@@ -20,7 +20,7 @@ const SingleProduct = ({product}) => {
                         Price: BDT {price}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                        {description}
+                        {description.slice(0,100)}
                     </Typography>
                 </CardContent>
             </Card>
