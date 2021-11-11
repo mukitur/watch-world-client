@@ -1,5 +1,5 @@
 
-import { Button, TextField } from '@mui/material';
+import { Button, TextField, Typography } from '@mui/material';
 //import { Box } from '@mui/system';
 import React, {useState} from 'react';
 //import useAuth from '../../../hooks/useAuth';
@@ -43,9 +43,10 @@ const AddProducts = () => {
     }
 
     return (
-        
         <>
-            <h2>Add Your Products</h2>
+            <Typography style={{marginTop:'15px'}} variant="h2" component="div" gutterBottom>
+                Add a Product
+            </Typography>
             <form onSubmit={handleProductSubmit}>
             <TextField
                 sx={{ width: '60%', m: 1 }}
