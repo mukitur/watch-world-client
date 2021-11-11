@@ -1,7 +1,6 @@
-import { Card, CardContent, CardMedia, Grid, Typography } from '@mui/material';
+import { Button, Card, CardContent, CardMedia, Grid, TextField, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-import Footer from '../../Shared/Footer/Footer';
 import Navigation from '../../Shared/Navigation/Navigation';
 
 const Shops = ({product}) => {
@@ -14,6 +13,41 @@ const Shops = ({product}) => {
         .then(data=>setShops(data))
     }, [])
 
+    //purchase order part start
+    const initialOrderInfo = {productName: '', description: '', price: '', image: '' }
+    const [orderInfo, setOrderInfo] = useState(initialOrderInfo);
+
+    const handleOnBlur = e => {
+        const field = e.target.name;
+        const value = e.target.value;
+        const newInfo = { ...orderInfo };
+        newInfo[field] = value;
+        console.log(newInfo)
+        setOrderInfo(newInfo);
+
+    }
+    const handleProductSubmit = e => {
+         alert('submitting');
+        //const products = {...setOrderInfo};
+        //console.log(products)
+        /* fetch('http://localhost:8000/products', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(products)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            console.log(data)
+            
+        })
+        */
+        //Collect Data
+        //Send data to server
+        e.preventDefault();
+    }
+
     return (
         <>  
             <Navigation></Navigation>
@@ -22,7 +56,7 @@ const Shops = ({product}) => {
             </Typography>
             <Grid container spacing={2}>
                 <Grid item xs={12} md={6}>
-                    <Typography variant="h4" component="div" gutterBottom>
+                    <Typography variant="h5" component="div" gutterBottom>
                     Purchase {shops.productName}
                     </Typography>
                     <Card sx={{ minWidth: 275, border: 0, boxShadow: 0 }}>
@@ -49,6 +83,43 @@ const Shops = ({product}) => {
                     <Typography variant="h5" gutterBottom component="div">
                         Please fillup the form below to complete the order.
                     </Typography>
+
+                    <form onSubmit={handleProductSubmit}>
+                        <TextField
+                            sx={{ width: '60%', m: 1 }}
+                            id="outlined-size-small"
+                            name="productName"
+                            onBlur={handleOnBlur}
+                            defaultValue="Product Name"
+                            size="small"
+                        /><br/>
+                        <TextField
+                            sx={{ width: '60%', m: 1 }}
+                            id="outlined-size-small"
+                            name="description"
+                            onBlur={handleOnBlur}
+                            defaultValue="Product Description"
+                            size="small"
+                        /><br/>
+                        <TextField
+                            sx={{ width: '60%', m: 1 }}
+                            id="outlined-size-small"
+                            name="price"
+                            onBlur={handleOnBlur}
+                            defaultValue="Product Price"
+                            size="small"
+                        /><br/>
+                        <TextField
+                            sx={{ width: '60%', m: 1 }}
+                            id="outlined-size-small"
+                            name="image"
+                            onBlur={handleOnBlur}
+                            defaultValue="Upload Image"
+                            size="small"
+                        />
+                        <br/>
+                        <Button type="submit" variant="contained">Purchase</Button>
+                    </form>
                 </Grid>
             </Grid>
         </>
