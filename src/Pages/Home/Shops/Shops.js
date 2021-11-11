@@ -42,9 +42,10 @@ const Shops = ({product}) => {
         .then(res=>res.json())
         .then(data=>{
             console.log(data)
-            setOrderInfo({})
+            if(data.insertedId){
+                alert('Thank You. Order placed successfully')
+            }
         })
-        
         e.preventDefault();
     }
 
