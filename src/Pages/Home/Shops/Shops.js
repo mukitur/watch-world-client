@@ -14,7 +14,7 @@ const Shops = ({product}) => {
     }, [])
 
     //purchase order part start
-    const initialOrderInfo = {productName: '', description: '', price: '', image: '' }
+    const initialOrderInfo = {productName: '', description: '', price: '' }
     const [orderInfo, setOrderInfo] = useState(initialOrderInfo);
 
     const handleOnBlur = e => {
@@ -107,14 +107,6 @@ const Shops = ({product}) => {
                             name="price"
                             onBlur={handleOnBlur}
                             defaultValue="Product Price"
-                            size="small"
-                        /><br/>
-                        <TextField
-                            sx={{ width: '60%', m: 1 }}
-                            id="outlined-size-small"
-                            name="image"
-                            onBlur={handleOnBlur}
-                            defaultValue="Upload Image"
                             size="small"
                         />
                         <br/>
