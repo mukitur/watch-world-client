@@ -36,9 +36,6 @@ const AddProducts = () => {
             console.log(data)
             
         })
-       
-        //Collect Data
-        //Send data to server
         e.preventDefault();
     }
 

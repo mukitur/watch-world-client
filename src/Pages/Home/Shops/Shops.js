@@ -1,11 +1,13 @@
 import { Button, Card, CardContent, CardMedia, Grid, TextField, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
+import useAuth from '../../../hooks/useAuth';
 import Navigation from '../../Shared/Navigation/Navigation';
 
 const Shops = ({product}) => {
     const [shops, setShops] = useState({});
     const {id} = useParams();
+    const {user}= useAuth();
     //const {productName, description, image, price, id} = product;
     useEffect( ()=>{
         fetch(`http://localhost:8000/shopping/${id}`)
@@ -14,7 +16,7 @@ const Shops = ({product}) => {
     }, [])
 
     //purchase order part start
-    const initialOrderInfo = {productName: '', description: '', price: '' }
+    const initialOrderInfo = {orderName: user.displayName, email: user.email, phone: '', address: '' }
     const [orderInfo, setOrderInfo] = useState(initialOrderInfo);
 
     const handleOnBlur = e => {
@@ -81,36 +83,44 @@ const Shops = ({product}) => {
                 </Grid>
                 <Grid item xs={12} md={6}>
                     <Typography variant="h5" gutterBottom component="div">
-                        Please fillup the form below to complete the order.
+                        Shipping Details
                     </Typography>
 
                     <form onSubmit={handleProductSubmit}>
-                        <TextField
+                    <TextField
                             sx={{ width: '60%', m: 1 }}
                             id="outlined-size-small"
-                            name="productName"
+                            name="orderName"
                             onBlur={handleOnBlur}
-                            defaultValue="Product Name"
+                            defaultValue={user.displayName}
                             size="small"
                         /><br/>
                         <TextField
                             sx={{ width: '60%', m: 1 }}
                             id="outlined-size-small"
-                            name="description"
+                            name="email"
                             onBlur={handleOnBlur}
-                            defaultValue="Product Description"
+                            defaultValue={user.email}
                             size="small"
                         /><br/>
                         <TextField
                             sx={{ width: '60%', m: 1 }}
                             id="outlined-size-small"
-                            name="price"
+                            name="phone"
                             onBlur={handleOnBlur}
-                            defaultValue="Product Price"
+                            defaultValue="Phone Number"
+                            size="small"
+                        /><br/>
+                        <TextField
+                            sx={{ width: '60%', m: 1 }}
+                            id="outlined-size-small"
+                            name="address"
+                            onBlur={handleOnBlur}
+                            defaultValue="Shipping Address"
                             size="small"
                         />
                         <br/>
-                        <Button type="submit" variant="contained">Purchase</Button>
+                        <Button type="submit" variant="contained">Order Now</Button>
                     </form>
                 </Grid>
             </Grid>
