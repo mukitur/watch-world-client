@@ -1,4 +1,6 @@
+import { Grid, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
+import ShowAllManageOrder from '../ShowAllManageOrder/ShowAllManageOrder';
 
 const ManageAllOrders = () => {
     const [manageAllOrder, setManageAllOrder] = useState([]);
@@ -9,7 +11,21 @@ const ManageAllOrders = () => {
     } ,[])
     return (
         <div>
-            <h2>Manage All Orders {manageAllOrder.length}</h2>
+            <Typography variant="h1" component="div" gutterBottom>
+                Manage All Orders
+            </Typography>
+            <Typography variant="h5" component="div" gutterBottom>
+                Total Orders {manageAllOrder.length}
+            </Typography>
+            
+            <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+                {
+                    manageAllOrder.map(odr=><ShowAllManageOrder
+                        key={odr._id}
+                        odr={odr}
+                    ></ShowAllManageOrder>)
+                }
+            </Grid>
         </div>
     );
 };
