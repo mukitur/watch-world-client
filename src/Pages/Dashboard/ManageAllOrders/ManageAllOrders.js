@@ -11,7 +11,7 @@ const ManageAllOrders = () => {
     } ,[])
     return (
         <div>
-            <Typography variant="h1" component="div" gutterBottom>
+            <Typography variant="h2" component="div" gutterBottom>
                 Manage All Orders
             </Typography>
             <Typography variant="h5" component="div" gutterBottom>
