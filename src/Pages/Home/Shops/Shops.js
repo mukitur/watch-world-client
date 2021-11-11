@@ -16,6 +16,7 @@ const Shops = ({product}) => {
     }, [])
 
     //purchase order part start
+
     const initialOrderInfo = {orderName: user.displayName, email: user.email, phone: '', address: '' }
     const [orderInfo, setOrderInfo] = useState(initialOrderInfo);
 
@@ -28,25 +29,22 @@ const Shops = ({product}) => {
         setOrderInfo(newInfo);
 
     }
-    const handleProductSubmit = e => {
-         alert('submitting');
-        //const products = {...setOrderInfo};
-        //console.log(products)
-        /* fetch('http://localhost:8000/products', {
+    const handleOrdertSubmit = e => {
+        const order = {...orderInfo};
+        console.log(order) 
+        fetch('http://localhost:8000/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(products)
+            body: JSON.stringify(order)
         })
         .then(res=>res.json())
         .then(data=>{
             console.log(data)
-            
+            setOrderInfo({})
         })
-        */
-        //Collect Data
-        //Send data to server
+        
         e.preventDefault();
     }
 
@@ -86,8 +84,9 @@ const Shops = ({product}) => {
                         Shipping Details
                     </Typography>
 
-                    <form onSubmit={handleProductSubmit}>
+                    <form onSubmit={handleOrdertSubmit}>
                     <TextField
+                            disabled
                             sx={{ width: '60%', m: 1 }}
                             id="outlined-size-small"
                             name="orderName"
@@ -96,6 +95,7 @@ const Shops = ({product}) => {
                             size="small"
                         /><br/>
                         <TextField
+                            disabled
                             sx={{ width: '60%', m: 1 }}
                             id="outlined-size-small"
                             name="email"
