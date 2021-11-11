@@ -4,7 +4,7 @@ import useAuth from '../../../hooks/useAuth';
 
 const Reviews = () => {
     const {user} = useAuth();
-    const initialReviewInfo = {orderName: user.displayName, email: user.email, phone: ''}
+    const initialReviewInfo = {uName: user.displayName, email: user.email, review: ''}
     const [reviewInfo, setReviewInfo] = useState(initialReviewInfo);
 
     const handleOnBlur = e => {
@@ -16,16 +16,32 @@ const Reviews = () => {
         setReviewInfo(newInfo);
 
     }
-    const handleOrdertSubmit = e => {
+    const handleReviewSubmit = e => {
+        const review = {...reviewInfo};
+        console.log(review) 
+        fetch('http://localhost:8000/reviews', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(review)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            console.log(data)
+            if(data.insertedId){
+                alert('Thank You. Your Review placed successfully')
+            }
+        })
         e.preventDefault();
     }
 
     return (
         <div>
             <Typography style={{marginTop:'15px'}} variant="h2" component="div" gutterBottom>
-                Please Comment About Our Products
+                Please Comment About Us
             </Typography>
-            <form onSubmit={handleOrdertSubmit}>
+            <form onSubmit={handleReviewSubmit}>
                     <TextField
                             disabled
                             sx={{ width: '60%', m: 1 }}
