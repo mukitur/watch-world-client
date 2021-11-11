@@ -9,6 +9,7 @@ import Register from './Pages/Login/Register/Register';
 import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
 import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 import PaymentSystem from './Pages/Dashboard/PaymentSystem/PaymentSystem';
+import Shops from './Pages/Home/Shops/Shops';
 
 function App() {
   return (
@@ -34,7 +35,9 @@ function App() {
             <PrivateRoute path="/dashboard">
                 <Dashboard></Dashboard>
             </PrivateRoute>
-            
+            <PrivateRoute path="/shopping/:id">
+                <Shops></Shops>
+            </PrivateRoute>
           </Switch>
         </AuthProvider>
       </BrowserRouter>

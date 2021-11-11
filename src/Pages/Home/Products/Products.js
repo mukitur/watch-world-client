@@ -4,17 +4,17 @@ import { Link } from 'react-router-dom';
 import SingleProduct from '../SingleProduct/SingleProduct';
 
 const Products = () => {
-    const [products, setProducts] = useState([]);
+    const [allProducts, setAllProducts] = useState([]);
     useEffect(()=>{
         fetch('http://localhost:8000/products/home')
             .then(res=>res.json())
-            .then(data=>setProducts(data))
+            .then(data=>setAllProducts(data))
     } ,[])
     return (
         <div>
             <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
                 {
-                    products.map(product=><SingleProduct
+                    allProducts.map(product=><SingleProduct
                         key={product._id}
                         product={product}
                     ></SingleProduct>)
