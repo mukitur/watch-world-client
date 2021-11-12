@@ -13,7 +13,7 @@ const Shops = ({product}) => {
         fetch(`http://localhost:8000/shopping/${id}`)
         .then(res=>res.json())
         .then(data=>setShops(data))
-    }, [])
+    }, [id])
 
     //purchase order part start
 

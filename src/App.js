@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Home from './Pages/Home/Home/Home';
@@ -8,7 +7,6 @@ import Login from './Pages/Login/Login/Login';
 import Register from './Pages/Login/Register/Register';
 import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
 import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
-import PaymentSystem from './Pages/Dashboard/PaymentSystem/PaymentSystem';
 import Shops from './Pages/Home/Shops/Shops';
 
 function App() {
