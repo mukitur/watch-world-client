@@ -5,7 +5,7 @@ import ShowHomeReview from '../ShowHomeReview/ShowHomeReview';
 const HomeReview = () => {
     const [allReviews, setAllReviews] = useState([]);
     useEffect(()=>{
-        fetch('https://nameless-crag-53038.herokuapp.com/reviews')
+        fetch('http://localhost:8000/reviews')
             .then(res=>res.json())
             .then(data=>setAllReviews(data))
     } ,[])

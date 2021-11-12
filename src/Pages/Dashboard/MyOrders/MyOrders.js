@@ -7,7 +7,7 @@ const MyOrders = () => {
     const [myAllOrders, setMyAllOrders] = useState([]);
     const {user} =useAuth();
     useEffect(()=>{
-        fetch('https://nameless-crag-53038.herokuapp.com/orders')
+        fetch('http://localhost:8000/orders')
             .then(res=>res.json())
             .then(data=>setMyAllOrders(data))
     } ,[])

@@ -20,7 +20,7 @@ const Reviews = () => {
     const handleReviewSubmit = e => {
         const review = {...reviewInfo};
         //console.log(review) 
-        fetch('https://nameless-crag-53038.herokuapp.com/reviews', {
+        fetch('http://localhost:8000/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
