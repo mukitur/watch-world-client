@@ -1,9 +1,8 @@
-import { Button, Card, CardContent, CardMedia, Grid, Typography } from '@mui/material';
+import { Card, CardContent, CardMedia, Grid, Typography } from '@mui/material';
 import React from 'react';
-import { Link } from 'react-router-dom';
 
-const SingleProduct = ({product}) => {
-    const {productName, description, image, price, _id} =product;
+const ManageProductsDisplay = ({pd}) => {
+    const {productName, description, image, price} = pd;
     return (
         <Grid item xs={4} sm={4} md={4}>
             <Card sx={{ minWidth: 275, border: 0, boxShadow: 0 }}>
@@ -25,11 +24,11 @@ const SingleProduct = ({product}) => {
                     </Typography>
                 </CardContent>
             </Card>
-            {<Link to = {`/shopping/${_id}`} style={{ textDecoration: 'none', color: 'black' }}>
+            {/* {<Link to = {`/shopping/${_id}`} style={{ textDecoration: 'none', color: 'black' }}>
                 <Button variant="contained">Shop Now</Button>
-            </Link>}
+            </Link>} */}
         </Grid>
     );
 };
 
-export default SingleProduct;
+export default ManageProductsDisplay;
