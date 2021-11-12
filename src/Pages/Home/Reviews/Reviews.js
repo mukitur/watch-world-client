@@ -18,7 +18,7 @@ const Reviews = () => {
     }
     const handleReviewSubmit = e => {
         const review = {...reviewInfo};
-        console.log(review) 
+        //console.log(review) 
         fetch('http://localhost:8000/reviews', {
             method: 'POST',
             headers: {
