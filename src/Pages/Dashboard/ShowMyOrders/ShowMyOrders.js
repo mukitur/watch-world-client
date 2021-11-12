@@ -7,7 +7,7 @@ const ShowMyOrders = ({odrs}) => {
     const handleDeleteUser = id => {
         const proceed = window.confirm('Are you sure? Do you want to delete the order?')
        if(proceed){
-            const url = `http://localhost:8000/orders/${id}`;
+            const url = `https://nameless-crag-53038.herokuapp.com/orders/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
