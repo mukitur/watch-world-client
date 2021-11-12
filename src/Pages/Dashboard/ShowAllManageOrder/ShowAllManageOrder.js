@@ -19,9 +19,6 @@ const ShowAllManageOrder = ({odr}) => {
             .then(data=>{
                 if(data.deletedCount){
                     setSuccess(true);
-                    /* const remainingOrder = usersOd.filter(user => user._id !== id);
-                    console.log(remainingOrder);
-                    setUsersOd(remainingOrder) */
                 }
             })
        }
