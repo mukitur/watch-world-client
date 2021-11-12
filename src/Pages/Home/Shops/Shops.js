@@ -1,4 +1,4 @@
-import { Button, Card, CardContent, CardMedia, Grid, TextField, Typography } from '@mui/material';
+import { Alert, Button, Card, CardContent, CardMedia, Grid, TextField, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import useAuth from '../../../hooks/useAuth';
@@ -6,6 +6,8 @@ import Navigation from '../../Shared/Navigation/Navigation';
 
 const Shops = ({product}) => {
     const [shops, setShops] = useState({});
+    const [success, setSuccess] = useState(false);
+
     const {id} = useParams();
     const {user}= useAuth();
     //const {productName, description, image, price, id} = product;
@@ -43,7 +45,7 @@ const Shops = ({product}) => {
         .then(data=>{
             console.log(data)
             if(data.insertedId){
-                alert('Thank You. Order placed successfully')
+                setSuccess(true);
             }
         })
         e.preventDefault();
@@ -123,6 +125,9 @@ const Shops = ({product}) => {
                         <br/>
                         <Button type="submit" variant="contained">Order Now</Button>
                     </form>
+                    {
+                        success && <Alert severity="success">Thank you. Successfully placed your Order!</Alert>
+                    }
                 </Grid>
             </Grid>
         </>

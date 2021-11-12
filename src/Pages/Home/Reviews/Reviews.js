@@ -1,4 +1,4 @@
-import { Button, TextField, Typography } from '@mui/material';
+import { Alert, Button, TextField, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import useAuth from '../../../hooks/useAuth';
 
@@ -6,6 +6,7 @@ const Reviews = () => {
     const {user} = useAuth();
     const initialReviewInfo = {uName: user.displayName, email: user.email, review: ''}
     const [reviewInfo, setReviewInfo] = useState(initialReviewInfo);
+    const [success, setSuccess] = useState(false);
 
     const handleOnBlur = e => {
         const field = e.target.name;
@@ -30,7 +31,7 @@ const Reviews = () => {
         .then(data=>{
             console.log(data)
             if(data.insertedId){
-                alert('Thank You. Your Review placed successfully')
+                setSuccess(true);
             }
         })
         e.preventDefault();
@@ -70,6 +71,10 @@ const Reviews = () => {
                         /><br/>
                         <Button type="submit" variant="contained">Submit Review</Button>
                     </form>
+                    <br/>
+                    {
+                        success && <Alert severity="success"> Thank You. Successfully added your comments in our website!</Alert>
+                    }
         </div>
     );
 };

@@ -1,11 +1,12 @@
 
-import { Button, TextField, Typography } from '@mui/material';
+import { Alert, Button, TextField, Typography } from '@mui/material';
 //import { Box } from '@mui/system';
 import React, {useState} from 'react';
 //import useAuth from '../../../hooks/useAuth';
 
 const AddProducts = () => {
-    //const {user} = useAuth();
+    const [success, setSuccess] = useState(false);
+
     const initialInfo = {productName: '', description: '', price: '', image: '' }
     const [productInfo, setProductInfo] = useState(initialInfo);
     
@@ -35,7 +36,7 @@ const AddProducts = () => {
         .then(data=>{
             console.log(data)
             if(data.insertedId){
-                alert('Product added successfully')
+                setSuccess(true);
             }
             
         })
@@ -83,6 +84,10 @@ const AddProducts = () => {
             <br/>
             <Button type="submit" variant="contained">Add Products</Button>
         </form>
+        <br/>
+        {
+            success && <Alert severity="success">Successfully Add Product in DataBase!</Alert>
+        }
         </>
     );
 };

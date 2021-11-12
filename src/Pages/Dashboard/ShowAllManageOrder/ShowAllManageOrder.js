@@ -1,8 +1,11 @@
-import { Button, Card, CardContent, Grid, Typography } from '@mui/material';
+import { Alert, Button, Card, CardContent, Grid, Typography } from '@mui/material';
 import React, { useState } from 'react';
 
 const ShowAllManageOrder = ({odr}) => {
+
     const [usersOd, setUsersOd] = useState([]);
+    const [success, setSuccess] = useState(false);
+
     const {orderName, email, phone, address}= odr;
 
     const handleDeleteUser = id => {
@@ -14,8 +17,8 @@ const ShowAllManageOrder = ({odr}) => {
             })
             .then(res=>res.json())
             .then(data=>{
-                if(data.deletedCount>0){
-                    alert('Deleted Order Successfully')
+                if(data.deletedCount){
+                    setSuccess(true);
                     /* const remainingOrder = usersOd.filter(user => user._id !== id);
                     console.log(remainingOrder);
                     setUsersOd(remainingOrder) */
@@ -44,7 +47,9 @@ const ShowAllManageOrder = ({odr}) => {
                 </CardContent>
                 <Button onClick={()=>handleDeleteUser(odr._id)}>Delete Order</Button>
             </Card>
-            
+            {
+                success && <Alert severity="success">Successfully Delete Order</Alert>
+            }
         </Grid>
         </>
     );

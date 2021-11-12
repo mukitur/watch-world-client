@@ -1,24 +1,29 @@
 import { Alert, Button, TextField } from '@mui/material';
 import React, {useState} from 'react';
-import useAuth from '../../../hooks/useAuth';
 
 const MakeAdmin = () => {
-    const {user} = useAuth();
-    const initialInfo = { userName: user.displayName, email: user.email, phone: '' }
-    const [peoductInfo, setPeoductInfo] = useState(initialInfo);
     
-
+    const [email, setEmail] = useState('');
+    const [success, setSuccess] = useState(false);
+    
     const handleOnBlur = e => {
-        const field = e.target.name;
-        const value = e.target.value;
-        const newInfo = { ...peoductInfo };
-        newInfo[field] = value;
-        setPeoductInfo(newInfo);
+        setEmail(e.target.value);
     }
+
     const handleBookingSubmit = e => {
-        Alert('submitting')
-        //Collect Data
-        //Send data to server
+        const user= {email};
+        fetch('http://localhost:8000/users/admin', {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            console.log(data)
+            setSuccess(true);
+        })
         e.preventDefault();
     }
 
@@ -29,14 +34,18 @@ const MakeAdmin = () => {
             <TextField
                 sx={{ width: '70%', m: 1 }}
                 id="outlined-size-small"
+                label="Email"
+                varient = "standard"
                 name="email"
                 onBlur={handleOnBlur}
-                defaultValue={user.email}
                 size="small"
             />
             <br/>
             <Button type="submit" variant="contained">Make Admin</Button>
         </form>
+        {
+            success && <Alert severity="success">Successfully added Admin!</Alert>
+        }
        </>
     );
 };
