@@ -60,6 +60,7 @@ const useFirebase = () => {
         signInWithPopup(auth, googleProvider)
             .then((result) => {
                 const user = result.user;
+                saveGoogleLoginUser(user.email, user.displayName);
                 setAuthError('');
                 const destination = location?.state?.from || '/';
                 history.replace(destination);
@@ -98,6 +99,18 @@ const useFirebase = () => {
         const user = {email,displayName};
         fetch('http://localhost:8000/users', {
             method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+        .then()
+    }
+    // Save Google Registered user data to Database
+    const saveGoogleLoginUser = (email, displayName) => {
+        const user = {email,displayName};
+        fetch('http://localhost:8000/users', {
+            method: 'PUT',
             headers: {
                 'content-type': 'application/json'
             },
