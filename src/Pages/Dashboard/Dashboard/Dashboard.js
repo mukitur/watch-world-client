@@ -29,7 +29,7 @@ import ManageAllOrders from '../ManageAllOrders/ManageAllOrders';
 const drawerWidth = 240;
 
 function Dashboard(props) {
-
+  const {admin} = useAuth();
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const { user, logout } = useAuth();
@@ -59,9 +59,14 @@ function Dashboard(props) {
       <Link to={`${url}/myorders`}><Button color="inherit">My Orders</Button></Link><br/>
       <Link to={`${url}/payment`}><Button color="inherit">Pay Now</Button></Link><br/>
       <Link to={`${url}/reviews`}><Button color="inherit">Reviews</Button></Link><br/>
-      <Link to={`${url}/makeadmin`}><Button color="inherit">Make Admin</Button></Link><br/>
-      <Link to={`${url}/addproduct`}><Button color="inherit">Add Product</Button></Link>
-      <Link to={`${url}/manaheAllOrders`}><Button color="inherit">Manage Orders</Button></Link>
+      {
+        admin && <Box>
+            <Link to={`${url}/makeadmin`}><Button color="inherit">Make Admin</Button></Link><br/>
+            <Link to={`${url}/addproduct`}><Button color="inherit">Add Product</Button></Link>
+            <Link to={`${url}/manaheAllOrders`}><Button color="inherit">Manage Orders</Button></Link>
+        </Box>
+      }
+      
       <Divider />
       
     </div>
