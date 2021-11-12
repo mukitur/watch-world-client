@@ -7,7 +7,7 @@ const ManageProducts = () => {
     const [manageAdminProducts, setManageAdminProducts] = useState([]);
 
     useEffect(()=>{
-        fetch('https://nameless-crag-53038.herokuapp.com/products')
+        fetch('http://localhost:8000/products')
             .then(res=>res.json())
             .then(data=>setManageAdminProducts(data))
     } ,[])

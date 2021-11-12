@@ -5,7 +5,7 @@ import ShowAllManageOrder from '../ShowAllManageOrder/ShowAllManageOrder';
 const ManageAllOrders = () => {
     const [manageAllOrder, setManageAllOrder] = useState([]);
     useEffect(()=>{
-        fetch('https://nameless-crag-53038.herokuapp.com/orders')
+        fetch('http://localhost:8000/orders')
             .then(res=>res.json())
             .then(data=>setManageAllOrder(data))
     } ,[])

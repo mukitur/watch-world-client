@@ -25,7 +25,7 @@ const AddProducts = () => {
         // alert('submitting');
         const products = {...productInfo};
         console.log(products)
-        fetch('https://nameless-crag-53038.herokuapp.com/products', {
+        fetch('http://localhost:8000/products', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
