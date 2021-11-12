@@ -86,7 +86,7 @@ const useFirebase = () => {
 
     //set admin/ not
     useEffect( ()=>{
-        fetch(`http://localhost:8000/users/${user.email}`)
+        fetch(`https://nameless-crag-53038.herokuapp.com/users/${user.email}`)
             .then(res=>res.json())
             .then(data=>setAdmin(data.admin))
     } ,[user.email])
@@ -105,7 +105,7 @@ const useFirebase = () => {
     // Save Registered user data to Database
     const saveUser = (email, displayName) => {
         const user = {email,displayName};
-        fetch('http://localhost:8000/users', {
+        fetch('https://nameless-crag-53038.herokuapp.com/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -117,7 +117,7 @@ const useFirebase = () => {
     // Save Google Registered user data to Database
     const saveGoogleLoginUser = (email, displayName) => {
         const user = {email,displayName};
-        fetch('http://localhost:8000/users', {
+        fetch('https://nameless-crag-53038.herokuapp.com/users', {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

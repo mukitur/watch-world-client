@@ -11,7 +11,7 @@ const ShowAllManageOrder = ({odr}) => {
     const handleDeleteUser = id => {
         const proceed = window.confirm('Are you sure? Do you want to delete the order?')
        if(proceed){
-            const url = `http://localhost:8000/orders/${id}`;
+            const url = `https://nameless-crag-53038.herokuapp.com/orders/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
@@ -27,7 +27,7 @@ const ShowAllManageOrder = ({odr}) => {
         <>
             
             <Grid item xs={4} sm={4} md={4}>
-            <Card sx={{ minWidth: 275, border: 1, boxShadow: 2 }}>
+            <Card sx={{ minWidth: 275, border: 1, boxShadow: 3 }}>
                 <CardContent>
                     <Typography variant="subtitle1" component="div">
                         User Name: {orderName}
