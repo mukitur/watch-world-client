@@ -1,18 +1,21 @@
 import * as React from 'react';
 import { Grid } from '@mui/material';
+import MyOrders from '../MyOrders/MyOrders';
+import Reviews from '../../Home/Reviews/Reviews';
+import ManageProductsDisplay from '../ManageProducts/ManageProductsDisplay';
 
 
 const DashBoardHome = () => {
     return (
-        <Grid container spacing={2}>
-            <Grid item xs={12} sm={5}>
-                Home Page 1st Part
+        <>
+            <h2>Welcome to Dashboard!</h2>
+            <Grid container spacing={2}>
+                <Grid item xs={12} sm={12}>
+                    <MyOrders></MyOrders>
+                    <Reviews></Reviews>
+                </Grid>
             </Grid>
-
-            <Grid item xs={12} sm={7}>
-                Home Page 2nd Part       
-            </Grid>
-        </Grid>
+        </>
     );
 };
 

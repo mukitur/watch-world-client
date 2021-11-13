@@ -1,3 +1,4 @@
+import { Grid } from '@mui/material';
 import React from 'react';
 
 
@@ -12,10 +13,15 @@ const Banner = () => {
       };
 
     return (
-        <div>
-            <h2>Banner Page</h2>
-            
-        </div>
+        <Grid container spacing={2}>
+            <Grid item xs={12} sm={5}>
+                Home Page 1st Part
+            </Grid>
+
+            <Grid item xs={12} sm={7}>
+                Home Page 2nd Part       
+            </Grid>
+        </Grid>
     );
 };
 
