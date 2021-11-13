@@ -1,18 +1,17 @@
 import { Card, CardContent, Grid, Typography } from '@mui/material';
 import React from 'react';
+import Rating from '@mui/material/Rating';
 
 const ShowHomeReview = ({sreview}) => {
-    const {orderName, email, review} = sreview;
+    const {uName, review} = sreview;
+    const [value, setValue] = React.useState(3);
     return (
-        <div>
-            <Grid item xs={4} sm={4} md={4}>
-            <Card sx={{ minWidth: 275, border: 0, boxShadow: 0 }}>
+        <>
+            <Grid item xs={12} md={4}>
+            <Card sx={{ minWidth: 275, border: 0, boxShadow: 2 }}>
                 <CardContent>
                     <Typography variant="h5" component="div">
-                        {orderName}
-                    </Typography>
-                    <Typography variant="h6" component="div">
-                         {email}
+                        {uName}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
                         {review}
@@ -20,7 +19,7 @@ const ShowHomeReview = ({sreview}) => {
                 </CardContent>
             </Card>
         </Grid>
-        </div>
+        </>
     );
 };
 

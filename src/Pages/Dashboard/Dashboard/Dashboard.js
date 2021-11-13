@@ -56,16 +56,17 @@ function Dashboard(props) {
         </Typography>
       <Divider />
       
-      <Link to={`${url}`}><Button color="inherit">Dashboard</Button></Link><br/>
-      <Link to={`${url}/myorders`}><Button color="inherit">My Orders</Button></Link><br/>
-      <Link to={`${url}/payment`}><Button color="inherit">Pay Now</Button></Link><br/>
-      <Link to={`${url}/reviews`}><Button color="inherit">Reviews</Button></Link><br/>
+      <Link style={{color: "black", textDecoration: 'none'}} to={`${url}`}><Button style={{color: "black"}} color="inherit">Dashboard</Button></Link><br/>
+      <Link style={{color: "black", textDecoration: 'none'}} to={`${url}/myorders`}><Button color="inherit">My Orders</Button></Link><br/>
+      <Link style={{color: "black", textDecoration: 'none'}} to={`${url}/payment`}><Button  color="inherit">Pay Now</Button></Link><br/>
+      <Link style={{color: "black", textDecoration: 'none'}} to={`${url}/reviews`}><Button color="inherit">Reviews</Button></Link><br/>
+      <Divider />
       {
         admin && <Box>
-            <Link to={`${url}/makeadmin`}><Button color="inherit">Make Admin</Button></Link><br/>
-            <Link to={`${url}/addproduct`}><Button color="inherit">Add Product</Button></Link>
-            <Link to={`${url}/manaheAllOrders`}><Button color="inherit">Manage Orders</Button></Link>
-            <Link to={`${url}/manageProducts`}><Button color="inherit">Manage Products</Button></Link>
+            <Link style={{color: "black",textAlign: 'left', textDecoration: 'none'}} to={`${url}/makeadmin`}><Button color="inherit">Make Admin</Button></Link><br/>
+            <Link style={{color: "black", textDecoration: 'none'}} to={`${url}/addproduct`}><Button color="inherit">Add Product</Button></Link>
+            <Link style={{color: "black", textDecoration: 'none'}} to={`${url}/manaheAllOrders`}><Button color="inherit">Manage Orders</Button></Link>
+            <Link style={{color: "black", textDecoration: 'none'}} to={`${url}/manageProducts`}><Button color="inherit">Manage Products</Button></Link>
         </Box>
       }
       
