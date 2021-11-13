@@ -1,6 +1,5 @@
-import { Button, Card, CardContent, CardMedia, Grid, Typography } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import ManageProductsDisplay from './ManageProductsDisplay';
 
 const ManageProducts = () => {

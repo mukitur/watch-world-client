@@ -2,8 +2,6 @@ import * as React from 'react';
 import { Grid } from '@mui/material';
 import MyOrders from '../MyOrders/MyOrders';
 import Reviews from '../../Home/Reviews/Reviews';
-import ManageProductsDisplay from '../ManageProducts/ManageProductsDisplay';
-
 
 const DashBoardHome = () => {
     return (

@@ -3,7 +3,7 @@ import React from 'react';
 
 const ShowHomeReview = ({sreview}) => {
     const {uName, review} = sreview;
-    const [value, setValue] = React.useState(3);
+    //const [value, setValue] = React.useState(3);
     return (
         <>  
             <Grid item xs={12} md={4}>

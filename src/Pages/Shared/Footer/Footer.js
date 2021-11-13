@@ -1,17 +1,16 @@
 import React from 'react';
-import { experimentalStyled as styled } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
+//import { experimentalStyled as styled } from '@mui/material/styles';
+//import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
-import { List, ListItem, ListItemButton, ListItemText, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 import paymentlogo from './../../../images/bank-logo.webp';
 
-const Item = styled(Paper)(({ theme }) => ({
+/* const Item = styled(Paper)(({ theme }) => ({
     ...theme.typography.body2,
     padding: theme.spacing(2),
     textAlign: 'center',
     color: theme.palette.text.secondary,
-  }));
+  })); */
 
 const Footer = () => {
     return (

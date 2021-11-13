@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 
 const ManageProductsDisplay = ({pd}) => {
     const [success, setSuccess] = useState(false);
-    const {productName, description, image, price} = pd;
+    const {productName, image, price} = pd;
 
     const handleDeleteProducts = id =>{
         const proceed = window.confirm('Are you sure? Do you want to delete the product?')
