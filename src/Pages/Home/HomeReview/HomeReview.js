@@ -10,8 +10,8 @@ const HomeReview = () => {
             .then(data=>setAllReviews(data))
     } ,[])
     return (
-        <>
-            <Typography variant="h4" gutterBottom component="div">
+        <div style={{marginBottom: '50px', padding: '50px'}}>
+            <Typography  variant="h2" gutterBottom component="div">
                     User Review
             </Typography>
             <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
@@ -22,7 +22,7 @@ const HomeReview = () => {
                     ></ShowHomeReview>)
                 }
             </Grid>
-        </>
+        </div>
     );
 };
 

@@ -1,4 +1,4 @@
-import { Button, Grid } from '@mui/material';
+import { Button, Grid, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import SingleProduct from '../SingleProduct/SingleProduct';
@@ -11,7 +11,10 @@ const Products = () => {
             .then(data=>setAllProducts(data))
     } ,[])
     return (
-        <div>
+        <div style={{marginTop: '10px', paddingLeft: '50px', paddingRight: '50px'}}>
+            <Typography variant="h2" gutterBottom component="div">
+                Our Collections
+            </Typography>
             <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
                 {
                     allProducts.map(product=><SingleProduct
