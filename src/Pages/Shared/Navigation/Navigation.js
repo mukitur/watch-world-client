@@ -7,6 +7,7 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import { Link, NavLink } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
+import logo from '../../../images/logo.png'
 
 
 const Navigation = () => {
@@ -24,7 +25,7 @@ const Navigation = () => {
                     >
                     <Link style = {{textDecoration: 'none', color: "whitesmoke"}} to ="/">
                         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                            WATCH WORLD
+                           <img src = {logo} width="80%" alt=""/>
                         </Typography>
                     </Link>
                     </IconButton>

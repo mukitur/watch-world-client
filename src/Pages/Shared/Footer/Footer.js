@@ -1,11 +1,70 @@
 import React from 'react';
+import { experimentalStyled as styled } from '@mui/material/styles';
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Grid';
+import { List, ListItem, ListItemButton, ListItemText, Typography } from '@mui/material';
+import paymentlogo from './../../../images/bank-logo.webp';
+
+const Item = styled(Paper)(({ theme }) => ({
+    ...theme.typography.body2,
+    padding: theme.spacing(2),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+  }));
 
 const Footer = () => {
     return (
-        <div>
-            <h2>This is footer</h2>
+        <div style={{backgroundColor: 'black'}}>
+
+            {/* footer */}
+            <Grid container spacing={2}>
+                <Grid style={{color: 'white', paddingTop: '50px', paddingBottom: '50px'}} item xs={12} sm={4}>
+                    <Typography variant="overline" display="block" gutterBottom>
+                        About Us
+                    </Typography>
+                    <Typography style={{ alignItems: "left"}} variant="subtitle2" gutterBottom component="div">
+                        About Us <br/>
+                        Order Tracking
+                    </Typography>
+                </Grid>
+                <Grid style={{color: 'white', paddingTop: '50px', paddingBottom: '50px'}} item xs={12} sm={4}>
+                    <Typography variant="overline" display="block" gutterBottom>
+                        Customer Service
+                    </Typography>
+                    <Typography style={{ alignItems: "left"}} variant="subtitle2" gutterBottom component="div">
+                        Terms & Conditions <br/>
+                        Return Policy <br/>
+                        Privacy Policy <br/>
+                        Cookie Policy
+                    </Typography>
+                </Grid>
+                <Grid style={{color: 'white', paddingTop: '50px', paddingBottom: '50px'}} item xs={12} sm={4}>
+                    <Typography variant="overline" display="block" gutterBottom>
+                        Get In Touch
+                    </Typography>
+                    <Typography style={{ alignItems: "left"}} variant="subtitle2" gutterBottom component="div">
+                        House#20, Road# 02, Sector#11, Uttara, Dhaka-1230.
+                    </Typography>
+                    <Typography style={{ alignItems: "left"}} variant="h6" gutterBottom component="div">
+                        info@smartwatchworld.com
+                    </Typography>
+                </Grid>
+            </Grid>
+            {/* Copyright */}
+            <Grid container spacing={2}>
+                <Grid style={{color: 'white', paddingTop: '20px'}} item xs={12} sm={12}>
+                    <Typography variant="overline" display="block" gutterBottom>
+                        <img src={paymentlogo} alt=""/><br/>
+                        Copyright@ 2021. Smart Watch World. All rights reserved.
+                    </Typography>
+                    
+                </Grid>
+                
+            </Grid>
         </div>
     );
+
 };
 
 export default Footer;
