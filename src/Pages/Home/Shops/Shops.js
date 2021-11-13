@@ -12,7 +12,7 @@ const Shops = ({product}) => {
     const {user}= useAuth();
     //const {productName, description, image, price, id} = product;
     useEffect( ()=>{
-        fetch(`http://localhost:8000/shopping/${id}`)
+        fetch(`https://sleepy-plains-06608.herokuapp.com/shopping/${id}`)
         .then(res=>res.json())
         .then(data=>setShops(data))
     }, [id])
@@ -34,7 +34,7 @@ const Shops = ({product}) => {
     const handleOrdertSubmit = e => {
         const order = {...orderInfo};
         console.log(order) 
-        fetch('http://localhost:8000/orders', {
+        fetch('https://sleepy-plains-06608.herokuapp.com/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

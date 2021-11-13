@@ -25,7 +25,7 @@ const AddProducts = () => {
         // alert('submitting');
         const products = {...productInfo};
         console.log(products)
-        fetch('http://localhost:8000/products', {
+        fetch('https://sleepy-plains-06608.herokuapp.com/products', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

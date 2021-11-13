@@ -20,7 +20,7 @@ const Reviews = () => {
     const handleReviewSubmit = e => {
         const review = {...reviewInfo};
         //console.log(review) 
-        fetch('http://localhost:8000/reviews', {
+        fetch('https://sleepy-plains-06608.herokuapp.com/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

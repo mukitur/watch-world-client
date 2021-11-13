@@ -9,7 +9,7 @@ const ManageProductsDisplay = ({pd}) => {
     const handleDeleteProducts = id =>{
         const proceed = window.confirm('Are you sure? Do you want to delete the product?')
        if(proceed){
-            const url = `http://localhost:8000/products/${id}`;
+            const url = `https://sleepy-plains-06608.herokuapp.com/products/${id}`;
             fetch(url, {
                 method: 'DELETE',
                 headers: {
