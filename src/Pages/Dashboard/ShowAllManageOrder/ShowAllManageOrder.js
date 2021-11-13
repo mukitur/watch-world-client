@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 
 const ShowAllManageOrder = ({odr}) => {
 
-    //const [usersOd, setUsersOd] = useState([]);
     const [success, setSuccess] = useState(false);
 
     const {orderName, email, phone, address}= odr;
