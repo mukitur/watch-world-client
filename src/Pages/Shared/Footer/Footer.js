@@ -15,7 +15,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
 const Footer = () => {
     return (
-        <div style={{backgroundColor: 'black'}}>
+        <div style={{backgroundColor: 'black', paddingTop: "20px"}}>
 
             {/* footer */}
             <Grid container spacing={2}>
