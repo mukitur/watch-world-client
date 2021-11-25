@@ -14,8 +14,8 @@ This website is for the people who loved smart watch. Here different types of sm
 ### What we use this Projects?
 
 - React
-- React Bootstrap
-- React Router
+- Material UI
+- React Router v5
 - Firebase for Authentication
 - Use Context API
 - Font Awesome

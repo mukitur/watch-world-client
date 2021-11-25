@@ -19,7 +19,7 @@ const Shops = ({product}) => {
 
     //purchase order part start
 
-    const initialOrderInfo = {orderName: user.displayName, email: user.email, phone: '', address: '' }
+    const initialOrderInfo = {orderName: user.displayName, email: user.email, phone: '', address: '', status: '' }
     const [orderInfo, setOrderInfo] = useState(initialOrderInfo);
 
     const handleOnBlur = e => {
@@ -120,6 +120,16 @@ const Shops = ({product}) => {
                             name="address"
                             onBlur={handleOnBlur}
                             defaultValue="Shipping Address"
+                            size="small"
+                        />
+                        <br/>
+                        <TextField
+                            disabled
+                            sx={{ width: '60%', m: 1 }}
+                            id="outlined-size-small"
+                            name="status"
+                            onBlur={handleOnBlur}
+                            defaultValue="Pending"
                             size="small"
                         />
                         <br/>
