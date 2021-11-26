@@ -2,7 +2,7 @@
 
 - Live Site Link: https://watch-world-14cd8.web.app/
 - Client side Github Link: https://github.com/mukitur/watch-world-client
-- Server Side Github Link: https://github.com/programming-hero-web-course-4/niche-website-server-side-mukitur
+- Server Side Github Link: https://github.com/mukitur/watch-world-server
 - Server Live Link: https://sleepy-plains-06608.herokuapp.com/
 
 ## Watch World
